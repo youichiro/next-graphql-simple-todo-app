@@ -24,7 +24,6 @@ model User {
 model Task {
   id          Int      @id @default(autoincrement())
   title       String   @db.VarChar(100)
-  description String   @db.Text
   done        Boolean  @default(false)
   user        User     @relation(fields: [userId], references: [id])
   userId      Int
