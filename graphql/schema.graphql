@@ -3,5 +3,11 @@
 
 
 type Query {
-  ok: Boolean!
+  tasks: [Task]!
+}
+
+type Task {
+  done: Boolean!
+  id: Int!
+  title: String!
 }
