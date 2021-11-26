@@ -8,6 +8,6 @@ export const typeDefs = gql`
   }
 
   type Query {
-    tasks: [Task]!
+    tasks: [Task]
   }
 `
