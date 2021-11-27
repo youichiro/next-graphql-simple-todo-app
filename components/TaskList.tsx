@@ -41,9 +41,11 @@ const TaskList: React.FC = () => {
   if (error) return <p>Error: {error.message}</p>
   if (mutation.error) return <p>Error: {mutation.error.message}</p>
 
+  const tasks = [...data.tasks].sort((a: Task, b: Task) => b.id - a.id)
+
   return (
     <List>
-      {data.tasks.map((task: Task) => (
+      {tasks.map((task: Task) => (
         <ListItem key={task.id}>
           <Flex justify='space-between'>
             <Checkbox
