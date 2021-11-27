@@ -2,7 +2,7 @@ import { gql, useQuery } from '@apollo/client'
 import { Task } from '.prisma/client'
 import { Checkbox, List, ListItem } from '@chakra-ui/react'
 
-const AllTasksQuery = gql`
+export const AllTasksQuery = gql`
   query {
     tasks {
       id
