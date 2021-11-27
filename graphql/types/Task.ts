@@ -6,7 +6,7 @@ export const Task = objectType({
     t.nonNull.int('id')
     t.nonNull.string('title')
     t.nonNull.boolean('done')
-  }
+  },
 })
 
 export const TasksQuery = extendType({
@@ -16,9 +16,9 @@ export const TasksQuery = extendType({
       type: 'Task',
       resolve(_parent, _args, ctx) {
         return ctx.prisma.task.findMany()
-      }
+      },
     })
-  }
+  },
 })
 
 export const CreateTaskMutation = extendType({
@@ -32,12 +32,12 @@ export const CreateTaskMutation = extendType({
       resolve(_parent, args, ctx) {
         return ctx.prisma.task.create({
           data: {
-            title: args.title
-          }
+            title: args.title,
+          },
         })
-      }
+      },
     })
-  }
+  },
 })
 
 export const DeleteTaskMutation = extendType({
@@ -52,11 +52,11 @@ export const DeleteTaskMutation = extendType({
         return ctx.prisma.task.delete({
           where: {
             id: args.id,
-          }
+          },
         })
-      }
+      },
     })
-  }
+  },
 })
 
 export const UpdateTaskMutation = extendType({
@@ -77,9 +77,9 @@ export const UpdateTaskMutation = extendType({
           data: {
             title: args.title,
             done: args.done,
-          }
+          },
         })
-      }
+      },
     })
-  }
+  },
 })
