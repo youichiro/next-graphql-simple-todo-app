@@ -1,4 +1,4 @@
-import { objectType, extendType, stringArg, nonNull } from 'nexus'
+import { objectType, extendType, stringArg, nonNull, intArg, booleanArg } from 'nexus'
 
 export const Task = objectType({
   name: 'Task',
@@ -33,6 +33,50 @@ export const CreateTaskMutation = extendType({
         return ctx.prisma.task.create({
           data: {
             title: args.title
+          }
+        })
+      }
+    })
+  }
+})
+
+export const DeleteTaskMutation = extendType({
+  type: 'Mutation',
+  definition(t) {
+    t.nonNull.field('deleteTask', {
+      type: 'Task',
+      args: {
+        id: nonNull(intArg()),
+      },
+      resolve(_parent, args, ctx) {
+        return ctx.prisma.task.delete({
+          where: {
+            id: args.id,
+          }
+        })
+      }
+    })
+  }
+})
+
+export const UpdateTaskMutation = extendType({
+  type: 'Mutation',
+  definition(t) {
+    t.nonNull.field('updateTask', {
+      type: 'Task',
+      args: {
+        id: nonNull(intArg()),
+        title: nonNull(stringArg()),
+        done: nonNull(booleanArg()),
+      },
+      resolve(_parent, args, ctx) {
+        return ctx.prisma.task.update({
+          where: {
+            id: args.id,
+          },
+          data: {
+            title: args.title,
+            done: args.done,
           }
         })
       }
