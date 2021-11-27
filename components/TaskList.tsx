@@ -1,6 +1,7 @@
 import { gql, useQuery } from '@apollo/client'
 import { Task } from '.prisma/client'
 import { Checkbox, List, ListItem } from '@chakra-ui/react'
+import TaskDeleteButton from './TaskDeleteButton'
 
 export const AllTasksQuery = gql`
   query {
@@ -25,6 +26,7 @@ const TaskList: React.FC = () => {
            <Checkbox colorScheme='teal' isChecked={task.done}>
              {task.title}
              </Checkbox>
+             <TaskDeleteButton taskId={task.id} />
          </ListItem>
        ))}
      </List>
