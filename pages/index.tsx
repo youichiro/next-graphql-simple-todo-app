@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { gql, useQuery } from '@apollo/client'
-import {Task} from '.prisma/client'
+import { Task } from '.prisma/client'
 
 const AllTasksQuery = gql`
   query {
