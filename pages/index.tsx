@@ -16,7 +16,7 @@ const Home: NextPage = () => {
       <main>
         <Container my='32px'>
           <Stack spacing='32px'>
-            <Heading>TASK LIST</Heading>
+            <Heading>SIMPLE TASK LIST</Heading>
             <TaskAddForm />
             <TaskList />
           </Stack>

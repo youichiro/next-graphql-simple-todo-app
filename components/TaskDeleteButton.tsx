@@ -32,7 +32,8 @@ const TaskDeleteButton: React.FC<{ taskId: number }> = ({ taskId }) => {
         aria-label='tasl delete button'
         icon={<SmallCloseIcon />}
         variant='ghost'
-        _hover={{ bg: 'none' }}
+        color='gray.200'
+        _hover={{ bg: 'none', color: 'gray' }}
         _focus={{ boxShadow: 'none' }}
         onClick={() => handleClick()}
       />
