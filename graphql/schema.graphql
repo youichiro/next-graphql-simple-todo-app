@@ -2,6 +2,10 @@
 ### Do not make changes to this file directly
 
 
+type Mutation {
+  createTask(title: String!): Task!
+}
+
 type Query {
   tasks: [Task]!
 }

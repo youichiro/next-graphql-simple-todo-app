@@ -1,4 +1,4 @@
-import { objectType, extendType } from 'nexus'
+import { objectType, extendType, stringArg, nonNull } from 'nexus'
 
 export const Task = objectType({
   name: 'Task',
@@ -16,6 +16,25 @@ export const TasksQuery = extendType({
       type: 'Task',
       resolve(_parent, _args, ctx) {
         return ctx.prisma.task.findMany()
+      }
+    })
+  }
+})
+
+export const CreateTaskMutation = extendType({
+  type: 'Mutation',
+  definition(t) {
+    t.nonNull.field('createTask', {
+      type: 'Task',
+      args: {
+        title: nonNull(stringArg()),
+      },
+      resolve(_parent, args, ctx) {
+        return ctx.prisma.task.create({
+          data: {
+            title: args.title
+          }
+        })
       }
     })
   }
