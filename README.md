@@ -1,6 +1,6 @@
 ## next-graphql-simple-todo-app
 
-Create a simple TODO App using the following libraries
+Create a simple TODO App using a combination of the following libraries
 - [Next.js](https://nextjs.org/)
 - [Prisma](https://www.prisma.io/)
 - [Apollo GraphQL](https://www.apollographql.com/)
