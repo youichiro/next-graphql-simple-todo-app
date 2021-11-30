@@ -19,14 +19,13 @@ npm install
 createdb next_graphql_simple_todo_app
 
 # add .env
-cp .env.sample .env
-# set username and password to DATABASE_URL
+cp .env.sample .env  # set username and password to DATABASE_URL
 
 # schema migration
 npx prisma migrate dev
 
 # insert seeds
-npx prisma seed
+npx prisma db seed
 
 # serve
 npm run dev
